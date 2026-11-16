@@ -3,906 +3,596 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Commit Page</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <meta name="theme-color" content="#f6f0e5" />
+  <meta name="description" content="Aryan's Cafe is a cozy neighborhood spot for good coffee, fresh bakes, and unhurried moments." />
+  <title>Aryan's Cafe | Coffee, comfort, and good company</title>
   <style>
     :root {
-      --bg: #08110d;
-      --bg-soft: #101b18;
-      --panel: rgba(15, 24, 21, 0.9);
-      --panel-strong: #111d1a;
-      --card: #0f1c1a;
-      --card-alt: #11221e;
-      --text: #ebf8f3;
-      --muted: #9cb7ae;
-      --line: rgba(158, 197, 185, 0.12);
-      --green: #3de29a;
-      --green-strong: #2bbd87;
-      --blue: #79d4ff;
-      --purple: #9d8cff;
-      --orange: #ffb36b;
-      --shadow: 0 32px 80px rgba(0, 0, 0, 0.38);
+      color-scheme: light;
+      --cream: #f6f0e5;
+      --paper: #fffaf1;
+      --ink: #33251d;
+      --muted: #76675b;
+      --coffee: #70452f;
+      --coffee-dark: #4a2d21;
+      --caramel: #c9824e;
+      --sage: #8d9675;
+      --line: rgba(74, 45, 33, 0.14);
+      --shadow: 0 24px 70px rgba(74, 45, 33, 0.12);
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
+    }
+
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(61, 226, 154, 0.2), transparent 20%),
-        radial-gradient(circle at top right, rgba(121, 212, 255, 0.15), transparent 18%),
-        linear-gradient(180deg, var(--bg) 0%, #0a1412 100%);
-      color: var(--text);
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      -webkit-font-smoothing: antialiased;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 3px solid var(--caramel); outline-offset: 4px; }
 
-    .container {
-      width: min(1180px, calc(100% - 32px));
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
     }
 
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(12px);
-      background: rgba(8, 17, 13, 0.72);
+      z-index: 5;
       border-bottom: 1px solid var(--line);
+      background: rgba(246, 240, 229, 0.94);
+      backdrop-filter: blur(14px);
     }
 
     .nav {
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 76px;
-      gap: 18px;
+      gap: 24px;
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 11px;
+      font-size: 1.05rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-size: 0.78rem;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
     }
 
     .brand-mark {
+      width: 38px;
+      height: 38px;
       display: grid;
       place-items: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--green) 0%, var(--blue) 100%);
-      color: #05130e;
-      font-weight: 800;
-      box-shadow: 0 18px 32px rgba(61, 226, 154, 0.22);
+      border-radius: 50%;
+      background: var(--coffee-dark);
+      color: var(--paper);
+      font-family: Georgia, serif;
+      font-size: 1.15rem;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: clamp(16px, 3vw, 34px);
       color: var(--muted);
-      font-size: 0.94rem;
+      font-family: Arial, sans-serif;
+      font-size: 0.88rem;
     }
 
-    .nav-links a {
-      position: relative;
-      padding-bottom: 6px;
-    }
+    .nav-links a:hover { color: var(--coffee-dark); }
 
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 2px;
-      border-radius: 2px;
-      background: var(--green);
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform 0.24s ease;
-    }
-
-    .nav-links a:hover::after { transform: scaleX(1); }
-
-    .btn {
+    .button {
+      min-height: 46px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      padding: 0 21px;
+      border: 1px solid var(--coffee-dark);
       border-radius: 999px;
-      padding: 14px 22px;
+      background: var(--coffee-dark);
+      color: var(--paper);
+      font-family: Arial, sans-serif;
+      font-size: 0.88rem;
       font-weight: 700;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      border: 1px solid transparent;
+      transition: transform 180ms ease, background 180ms ease;
     }
 
-    .btn:hover { transform: translateY(-2px); }
+    .button:hover { transform: translateY(-2px); background: var(--coffee); }
+    .button-light { background: transparent; color: var(--coffee-dark); }
+    .button-light:hover { color: var(--paper); }
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--green) 0%, var(--green-strong) 100%);
-      color: #04150e;
-      box-shadow: 0 20px 40px rgba(43, 189, 135, 0.22);
-    }
+    .hero { padding: clamp(54px, 9vw, 108px) 0 88px; }
 
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.01);
-      border-color: var(--line);
-      color: var(--text);
-    }
-
-    .hero {
-      padding: 72px 0 56px;
-    }
-
-    .hero-inner {
+    .hero-grid {
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
+      grid-template-columns: 1.04fr 0.96fr;
       align-items: center;
-      gap: 44px;
+      gap: clamp(44px, 8vw, 100px);
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 9px 14px;
-      background: rgba(61, 226, 154, 0.08);
-      border: 1px solid rgba(61, 226, 154, 0.2);
-      border-radius: 999px;
-      font-size: 0.74rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--green);
+      gap: 9px;
+      margin: 0 0 21px;
+      color: var(--coffee);
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
       font-weight: 700;
-      margin-bottom: 18px;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
     }
 
     .eyebrow::before {
+      width: 24px;
+      height: 1px;
+      background: var(--caramel);
       content: "";
-      display: block;
-      width: 9px;
-      height: 9px;
-      background: var(--green);
-      border-radius: 50%;
-      box-shadow: 0 0 0 6px rgba(61, 226, 154, 0.12);
     }
 
-    h1, h2, h3 {
-      margin: 0;
-      line-height: 1;
-      letter-spacing: -0.06em;
-    }
+    h1, h2, h3, p { margin-top: 0; }
 
     h1 {
-      font-size: clamp(3.6rem, 6vw, 6.2rem);
-      margin-bottom: 18px;
+      max-width: 650px;
+      margin-bottom: 22px;
+      font-size: clamp(3.35rem, 7.5vw, 6.55rem);
+      font-weight: 500;
+      letter-spacing: -0.075em;
+      line-height: 0.96;
     }
 
-    .subtitle {
-      max-width: 580px;
-      margin: 0 0 28px;
+    h1 em {
+      color: var(--coffee);
+      font-weight: 500;
+    }
+
+    .intro {
+      max-width: 510px;
+      margin-bottom: 30px;
       color: var(--muted);
-      font-size: 1.08rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.02rem;
       line-height: 1.8;
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 32px;
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .hero-note {
+      margin: 25px 0 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
     }
 
-    .mini-stats {
-      display: flex;
-      flex-wrap: wrap;
+    .hero-art {
+      min-height: 475px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border-radius: 48% 48% 34px 34px;
+      background:
+        radial-gradient(ellipse at 51% 58%, rgba(255, 250, 241, 0.65) 0 22%, transparent 22.5%),
+        radial-gradient(ellipse at 50% 57%, #bc8256 0 38%, transparent 38.5%),
+        linear-gradient(145deg, #d5b08a, #a46b48 62%, #79503b);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-art::before,
+    .hero-art::after {
+      position: absolute;
+      border: 1px solid rgba(255, 250, 241, 0.38);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .hero-art::before { inset: 20px; }
+    .hero-art::after { inset: 34px; }
+
+    .cup {
+      width: 218px;
+      height: 155px;
+      position: relative;
+      z-index: 1;
+      margin-top: 70px;
+      border: 8px solid #fffaf1;
+      border-radius: 12px 12px 72px 72px;
+      background: linear-gradient(180deg, #805038 0 17%, #f3e7d4 17% 100%);
+      box-shadow: 0 25px 35px rgba(63, 35, 22, 0.22);
+      transform: rotate(-7deg);
+    }
+
+    .cup::after {
+      width: 58px;
+      height: 65px;
+      position: absolute;
+      top: 25px;
+      right: -58px;
+      border: 10px solid #fffaf1;
+      border-left: 0;
+      border-radius: 0 38px 38px 0;
+      content: "";
+    }
+
+    .cup::before {
+      width: 94px;
+      height: 14px;
+      position: absolute;
+      top: -18px;
+      left: 54px;
+      border-radius: 50%;
+      background: #593723;
+      content: "";
+    }
+
+    .steam {
+      width: 18px;
+      height: 62px;
+      position: absolute;
+      top: -95px;
+      left: 91px;
+      border-left: 2px solid rgba(255, 250, 241, 0.8);
+      border-radius: 50%;
+      transform: rotate(12deg);
+    }
+
+    .steam::before,
+    .steam::after {
+      width: 18px;
+      height: 54px;
+      position: absolute;
+      top: 8px;
+      left: 34px;
+      border-left: 2px solid rgba(255, 250, 241, 0.55);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .steam::after { left: 70px; top: -2px; }
+
+    .art-label {
+      position: absolute;
+      right: 24px;
+      bottom: 24px;
+      z-index: 2;
+      padding: 11px 15px;
+      border: 1px solid rgba(255, 250, 241, 0.55);
+      border-radius: 999px;
+      background: rgba(74, 45, 33, 0.38);
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section { padding: 84px 0; }
+    .section-paper { background: var(--paper); }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 38px;
+    }
+
+    .section-heading h2,
+    .story-copy h2,
+    .visit-copy h2 {
+      margin-bottom: 16px;
+      font-size: clamp(2.4rem, 5vw, 4.25rem);
+      font-weight: 500;
+      letter-spacing: -0.065em;
+      line-height: 1.02;
+    }
+
+    .section-heading p,
+    .story-copy p,
+    .visit-copy p {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      line-height: 1.8;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
     }
 
-    .stat {
-      min-width: 138px;
-      background: rgba(255,255,255,0.01);
+    .menu-card {
+      min-height: 250px;
+      padding: 25px;
       border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 16px 18px;
+      border-radius: 22px;
+      background: var(--cream);
+      transition: transform 180ms ease, box-shadow 180ms ease;
     }
 
-    .stat strong {
-      display: block;
-      font-size: 2rem;
-      letter-spacing: -0.06em;
-      margin-bottom: 4px;
-    }
+    .menu-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
 
-    .stat span {
-      color: var(--muted);
-      font-size: 0.74rem;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-    }
-
-    .hero-visual {
-      position: relative;
-      min-height: 620px;
+    .menu-icon {
+      width: 48px;
+      height: 48px;
       display: grid;
       place-items: center;
+      margin-bottom: 28px;
+      border-radius: 50%;
+      background: #ead9c2;
+      color: var(--coffee-dark);
+      font-family: Arial, sans-serif;
+      font-size: 1.25rem;
     }
 
-    .dashboard {
-      position: relative;
-      width: min(100%, 540px);
-      background: linear-gradient(180deg, rgba(15, 26, 22, 0.96), rgba(8, 17, 13, 0.96));
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
+    .menu-card h3 { margin-bottom: 9px; font-size: 1.5rem; font-weight: 500; }
+    .menu-card p { margin: 0; color: var(--muted); font-family: Arial, sans-serif; line-height: 1.7; }
+
+    .favorites {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: clamp(32px, 8vw, 96px);
+      align-items: start;
     }
 
-    .panel-header {
+    .favorites-list { border-top: 1px solid var(--line); }
+
+    .favorite {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 18px 20px;
+      gap: 20px;
+      padding: 20px 0;
       border-bottom: 1px solid var(--line);
-      background: rgba(255,255,255,0.01);
     }
 
-    .traffic {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    .favorite h3 { margin-bottom: 6px; font-size: 1.25rem; font-weight: 500; }
+    .favorite p { margin: 0; color: var(--muted); font-family: Arial, sans-serif; font-size: 0.9rem; line-height: 1.6; }
+    .favorite-mark { color: var(--caramel); font-size: 1.2rem; }
 
-    .traffic span {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    .traffic span:nth-child(1) { background: #ff6b6b; }
-    .traffic span:nth-child(2) { background: #f7c75f; }
-    .traffic span:nth-child(3) { background: var(--green); }
-
-    .repo-name {
-      color: var(--muted);
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .terminal {
-      padding: 26px 22px 0;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.82rem;
-      color: var(--text);
-    }
-
-    .command-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 16px;
-      color: var(--muted);
-    }
-
-    .prompt {
-      color: var(--green);
-      font-weight: 600;
-    }
-
-    .code-block {
-      background: rgba(4, 18, 15, 0.8);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      overflow: hidden;
-    }
-
-    .code-block pre {
-      margin: 0;
-      padding: 18px 16px 14px;
-      color: #dfeee9;
-      line-height: 1.8;
-      white-space: pre-wrap;
-      word-break: break-word;
-      font-size: 0.8rem;
-    }
-
-    .code-block .key { color: var(--purple); }
-    .code-block .value { color: var(--blue); }
-    .code-block .verb { color: var(--green); }
-    .code-block .meta { color: var(--orange); }
-
-    .commit-strip {
+    .visit {
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 12px;
-      margin-top: 22px;
-      padding: 0 22px 22px;
-    }
-
-    .chip {
-      display: inline-flex;
+      grid-template-columns: 1fr 1fr;
       align-items: center;
-      gap: 8px;
-      border-radius: 999px;
-      padding: 10px 12px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.02);
-      color: var(--muted);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+      gap: 50px;
+      padding: clamp(28px, 6vw, 64px);
+      border-radius: 30px;
+      background: var(--coffee-dark);
+      color: var(--paper);
     }
 
-    .chip strong {
-      color: var(--text);
-      font-weight: 700;
-      letter-spacing: normal;
-      text-transform: none;
+    .visit .eyebrow { color: #e8c39c; }
+    .visit-copy h2 { max-width: 480px; }
+    .visit-copy p { max-width: 490px; color: rgba(255, 250, 241, 0.75); }
+    .visit .button { border-color: var(--paper); background: var(--paper); color: var(--coffee-dark); }
+    .visit .button:hover { background: #ead9c2; }
+
+    .visit-card {
+      padding: 28px;
+      border: 1px solid rgba(255, 250, 241, 0.25);
+      border-radius: 20px;
+      background: rgba(255, 250, 241, 0.07);
     }
 
-    .section {
-      padding: 54px 0;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 26px;
-    }
-
-    .section-kicker {
-      display: inline-block;
-      color: var(--green);
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .section-header h2 {
-      font-size: clamp(2.7rem, 4vw, 4rem);
-    }
-
-    .lead {
-      max-width: 520px;
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.8;
-    }
-
-    .commit-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 24px;
-    }
-
-    .commit-list,
-    .info-panel,
-    .metric-card,
-    .feature-card {
-      background: rgba(16, 27, 24, 0.8);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 18px 42px rgba(0,0,0,0.18);
-    }
-
-    .commit-list {
-      padding: 10px;
-    }
-
-    .commit-item {
-      display: grid;
-      grid-template-columns: 40px 1fr auto;
-      gap: 16px;
-      align-items: center;
-      padding: 18px 16px;
-      border-radius: 18px;
-      border: 1px solid transparent;
-      transition: border-color 0.2s ease, background 0.2s ease;
-    }
-
-    .commit-item:hover {
-      border-color: var(--line);
-      background: rgba(255,255,255,0.015);
-    }
-
-    .hash-badge {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: rgba(121, 212, 255, 0.12);
-      color: var(--blue);
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 700;
-      font-size: 0.78rem;
-    }
-
-    .commit-meta {
-      min-width: 0;
-    }
-
-    .commit-meta strong {
+    .visit-card strong {
       display: block;
-      font-size: 1.05rem;
-      margin-bottom: 6px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+      font-weight: 500;
     }
 
-    .meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-      color: var(--muted);
-      font-size: 0.8rem;
-    }
-
-    .tag {
-      padding: 6px 8px;
-      border-radius: 999px;
-      background: rgba(61, 226, 154, 0.08);
-      color: var(--green);
-      border: 1px solid rgba(61, 226, 154, 0.2);
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
-    .commit-time {
-      color: var(--muted);
-      font-size: 0.76rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-align: right;
-    }
-
-    .info-panel {
-      padding: 20px;
-    }
-
-    .status-box {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      background: rgba(61, 226, 154, 0.06);
-      border: 1px solid rgba(61, 226, 154, 0.2);
-      border-radius: 18px;
-      padding: 18px 16px;
-      margin-bottom: 18px;
-    }
-
-    .status-box strong {
-      display: block;
-      font-size: 1.5rem;
-      margin-bottom: 2px;
-    }
-
-    .status-box span {
-      color: var(--muted);
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .dot {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 0 8px rgba(61,226,154,0.1);
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .metric-card {
-      padding: 18px 16px;
-    }
-
-    .metric-card strong {
-      display: block;
-      font-size: 2rem;
-      margin-bottom: 8px;
-    }
-
-    .metric-card span {
-      color: var(--muted);
-      font-size: 0.76rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 18px;
-    }
-
-    .feature-card {
-      padding: 22px 18px;
-    }
-
-    .feature-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, rgba(61, 226, 154, 0.13), rgba(121, 212, 255, 0.12));
-      font-size: 1.3rem;
-      margin-bottom: 14px;
-    }
-
-    .feature-card h3 {
-      font-size: 2rem;
-      margin-bottom: 8px;
-    }
-
-    .feature-card p {
+    .visit-card p {
       margin: 0;
-      color: var(--muted);
+      color: rgba(255, 250, 241, 0.75);
+      font-family: Arial, sans-serif;
       line-height: 1.75;
     }
 
-    .cta {
+    footer { padding: 30px 0; }
+
+    .footer-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
-      padding: 28px 30px;
-      border-radius: 30px;
-      background: linear-gradient(135deg, rgba(15, 31, 26, 1), rgba(11, 19, 17, 1));
-      border: 1px solid var(--line);
-      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.22);
-    }
-
-    .cta h2 {
-      font-size: clamp(2.2rem, 4vw, 3.6rem);
-      margin: 0 0 10px;
-    }
-
-    .cta p {
-      margin: 0;
-      max-width: 620px;
+      gap: 20px;
       color: var(--muted);
-      line-height: 1.8;
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
     }
 
-    footer {
-      padding: 20px 0 40px;
+    .footer-row .brand { color: var(--ink); font-family: Georgia, serif; }
+
+    @media (max-width: 800px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-art { min-height: 390px; max-width: 540px; width: 100%; margin: 0 auto; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .menu-card { min-height: 0; }
+      .menu-icon { margin-bottom: 18px; }
+      .favorites, .visit { grid-template-columns: 1fr; }
     }
 
-    .footer-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      padding-top: 26px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 28px, 1120px); }
+      .nav { min-height: 68px; flex-wrap: wrap; gap: 8px; padding: 10px 0; }
+      .nav-links { order: 3; width: 100%; justify-content: space-between; gap: 10px; font-size: 0.78rem; }
+      .nav > .button { min-height: 40px; padding: 0 15px; font-size: 0.8rem; }
+      .hero { padding-top: 56px; }
+      .hero-art { min-height: 320px; }
+      .cup { transform: scale(0.82) rotate(-7deg); }
+      .section { padding: 64px 0; }
+      .visit { padding: 28px 22px; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
     }
 
-    @media (max-width: 980px) {
-      .hero-inner,
-      .commit-grid,
-      .feature-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 12px 0;
-      }
-
-      .nav-links {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 12px 18px;
-      }
-
-      .hero {
-        padding-top: 56px;
-      }
-
-      .section-header,
-      .cta {
-        display: block;
-      }
-
-      .section-header .lead {
-        margin-top: 12px;
-      }
-
-      .hero-actions,
-      .mini-stats {
-        justify-content: center;
-      }
-
-      .commit-item {
-        grid-template-columns: 40px 1fr;
-      }
-
-      .commit-time {
-        grid-column: 2;
-        text-align: left;
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
-    <div class="container nav">
-      <div class="brand">
-        <div class="brand-mark">C</div>
-        <span>Commit</span>
+    <nav class="wrap nav" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Aryan's Cafe home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span>Aryan's Cafe</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">Our story</a>
+        <a href="#menu">Menu</a>
+        <a href="#favorites">Favorites</a>
+        <a href="#visit">Visit</a>
       </div>
-
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#overview">Overview</a>
-        <a href="#history">History</a>
-        <a href="#insights">Insights</a>
-        <a href="#releases">Releases</a>
-      </nav>
-
-      <a class="btn btn-secondary" href="#contact">Deploy</a>
-    </div>
+      <a class="button" href="#menu">Explore the menu</a>
+    </nav>
   </header>
 
   <main>
-    <section class="hero" id="overview">
-      <div class="container hero-inner">
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
         <div>
-          <div class="eyebrow">Live release</div>
-          <h1>Ship clearer commits. Build with confidence.</h1>
-          <p class="subtitle">
-            Commit keeps every change visible, every branch traceable, and every deployment more understandable — from the first line of code to production release.
+          <p class="eyebrow">Coffee, comfort, and good company</p>
+          <h1>A little cup of <em>happy.</em></h1>
+          <p class="intro">
+            Welcome to Aryan's Cafe: a cozy corner for thoughtfully made coffee,
+            fresh-from-the-oven treats, and moments worth slowing down for.
           </p>
-
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#history">View history</a>
-            <a class="btn btn-secondary" href="#insights">Analytics</a>
+            <a class="button" href="#menu">See what's brewing</a>
+            <a class="button button-light" href="#about">Get to know us</a>
           </div>
-
-          <div class="mini-stats">
-            <div class="stat">
-              <strong>18.4k</strong>
-              <span>Commits</span>
-            </div>
-            <div class="stat">
-              <strong>96%</strong>
-              <span>Healthy</span>
-            </div>
-            <div class="stat">
-              <strong>46ms</strong>
-              <span>Latency</span>
-            </div>
-          </div>
+          <p class="hero-note">Made with care. Best enjoyed at your own pace.</p>
         </div>
-
-        <div class="hero-visual">
-          <div class="dashboard">
-            <div class="panel-header">
-              <div class="traffic">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <div class="repo-name">repo/main</div>
-            </div>
-
-            <div class="terminal">
-              <div class="command-row">
-                <span><span class="prompt">$</span> commit status</span>
-                <span>up to date</span>
-              </div>
-
-              <div class="code-block">
-                <pre><span class="verb">build</span>: <span class="value">release-v2.4.1</span>
-<span class="key">author</span>: <span class="value">Ariana Lee</span>
-<span class="key">branch</span>: <span class="value">feature/checkout-flow</span>
-<span class="key">changes</span>: <span class="meta">14 files</span>
-<span class="key">tests</span>: <span class="value">42 passed</span>
-<span class="key">deploy</span>: <span class="value">staging</span> → <span class="value">production</span></pre>
-              </div>
-            </div>
-
-            <div class="commit-strip">
-              <div class="chip"><span>Last commit</span> <strong>8d6f1ad</strong></div>
-              <div class="chip"><span>Health</span> <strong>99.8%</strong></div>
-            </div>
-          </div>
+        <div class="hero-art" role="img" aria-label="Illustration of a warm cup of coffee">
+          <div class="cup"><span class="steam" aria-hidden="true"></span></div>
+          <span class="art-label">Your cozy coffee stop</span>
         </div>
       </div>
     </section>
 
-    <section class="section" id="history">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <span class="section-kicker">Recent history</span>
-            <h2>Fresh changes across the stack.</h2>
-          </div>
-          <p class="lead">
-            Team activity is organized by change set, making it easy to review momentum, recover context, and keep release quality high.
+    <section class="section section-paper" id="about">
+      <div class="wrap favorites">
+        <div class="story-copy">
+          <p class="eyebrow">A warm welcome</p>
+          <h2>Good coffee. No rush.</h2>
+        </div>
+        <div class="story-copy">
+          <p>
+            Aryan's Cafe is all about the simple things done thoughtfully:
+            a comforting cup, something delicious to share, and a friendly
+            place to take a breath in the middle of a busy day.
+          </p>
+          <p>
+            Come in for your morning pick-me-up, meet a friend, or stay a little
+            longer with one more cup. There's always room for a good moment.
           </p>
         </div>
-
-        <div class="commit-grid">
-          <div class="commit-list">
-            <div class="commit-item">
-              <div class="hash-badge">8d6</div>
-              <div class="commit-meta">
-                <strong>refactor checkout flow into modular state</strong>
-                <div class="meta-row">
-                  <span>Ariana Lee</span>
-                  <span class="tag">feature</span>
-                  <span>3 files changed</span>
-                </div>
-              </div>
-              <div class="commit-time">12 min ago</div>
-            </div>
-
-            <div class="commit-item">
-              <div class="hash-badge">1ab</div>
-              <div class="commit-meta">
-                <strong>fix: prevent duplicate cards in shipping summary</strong>
-                <div class="meta-row">
-                  <span>Marco Silva</span>
-                  <span class="tag">bugfix</span>
-                  <span>2 files changed</span>
-                </div>
-              </div>
-              <div class="commit-time">41 min ago</div>
-            </div>
-
-            <div class="commit-item">
-              <div class="hash-badge">f13</div>
-              <div class="commit-meta">
-                <strong>feat: launch notification preferences panel</strong>
-                <div class="meta-row">
-                  <span>Priya Shah</span>
-                  <span class="tag">release</span>
-                  <span>7 files changed</span>
-                </div>
-              </div>
-              <div class="commit-time">1 hour ago</div>
-            </div>
-
-            <div class="commit-item">
-              <div class="hash-badge">ac4</div>
-              <div class="commit-meta">
-                <strong>perf: trim bundle size for landing page</strong>
-                <div class="meta-row">
-                  <span>Leo Martin</span>
-                  <span class="tag">perf</span>
-                  <span>5 files changed</span>
-                </div>
-              </div>
-              <div class="commit-time">2 hours ago</div>
-            </div>
-          </div>
-
-          <aside class="info-panel">
-            <div class="status-box">
-              <div>
-                <strong>99.8%</strong>
-                <span>System health</span>
-              </div>
-              <div class="dot"></div>
-            </div>
-
-            <div class="stats-grid">
-              <div class="metric-card">
-                <strong>242</strong>
-                <span>Open PRs</span>
-              </div>
-              <div class="metric-card">
-                <strong>13</strong>
-                <span>Branches</span>
-              </div>
-              <div class="metric-card">
-                <strong>8.7k</strong>
-                <span>Builds</span>
-              </div>
-              <div class="metric-card">
-                <strong>4.2k</strong>
-                <span>Tests</span>
-              </div>
-            </div>
-          </aside>
-        </div>
       </div>
     </section>
 
-    <section class="section" id="insights">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <span class="section-kicker">Developer workflow</span>
-            <h2>Everything your team needs to move faster.</h2>
-          </div>
-          <p class="lead">
-            From branch health to release visibility, Commit brings clarity to the decisions behind every code change.
+    <section class="section" id="menu">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">From our counter</p>
+          <h2>A little something for every craving.</h2>
+          <p>
+            From your first sip to the last crumb, find a favorite and make
+            yourself at home.
           </p>
         </div>
-
-        <div class="feature-grid">
-          <article class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <h3>Fast</h3>
-            <p>Review the latest deployment impact with one clear timeline from commit to release.</p>
+        <div class="menu-grid">
+          <article class="menu-card">
+            <span class="menu-icon" aria-hidden="true">01</span>
+            <h3>Coffee &amp; espresso</h3>
+            <p>Comforting classics, rich espresso, and smooth cups made just the way you like them.</p>
           </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">🧩</div>
-            <h3>Connected</h3>
-            <p>Track related commits, branch states, and production readiness without leaving the flow.</p>
+          <article class="menu-card">
+            <span class="menu-icon" aria-hidden="true">02</span>
+            <h3>Fresh bakes</h3>
+            <p>Flaky pastries, sweet treats, and something lovely to pair with your coffee.</p>
           </article>
-
-          <article class="feature-card">
-            <div class="feature-icon">🔒</div>
-            <h3>Reliable</h3>
-            <p>Surface regressions early and keep every release anchored in measurable, reviewable context.</p>
+          <article class="menu-card">
+            <span class="menu-icon" aria-hidden="true">03</span>
+            <h3>Light bites</h3>
+            <p>Easygoing bites for a quick break, a slow lunch, or sharing across the table.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="releases">
-      <div class="container">
-        <div class="cta">
-          <div>
-            <span class="section-kicker">Ready to release</span>
-            <h2>Keep every iteration traceable.</h2>
-            <p>Monitor live quality, review branch movement, and ship confidently with a commit history built for modern product teams.</p>
-          </div>
-          <a class="btn btn-primary" href="#overview">Open dashboard</a>
+    <section class="section section-paper" id="favorites">
+      <div class="wrap favorites">
+        <div class="section-heading">
+          <p class="eyebrow">A few favorites</p>
+          <h2>Little rituals, made delicious.</h2>
+          <p>Ask us what is fresh today and we'll help you find your new go-to.</p>
         </div>
+        <div class="favorites-list">
+          <article class="favorite">
+            <div>
+              <h3>The cozy latte</h3>
+              <p>Espresso and silky steamed milk, finished with a little love.</p>
+            </div>
+            <span class="favorite-mark" aria-hidden="true">✦</span>
+          </article>
+          <article class="favorite">
+            <div>
+              <h3>Something freshly baked</h3>
+              <p>A warm, buttery treat that makes any coffee break better.</p>
+            </div>
+            <span class="favorite-mark" aria-hidden="true">✦</span>
+          </article>
+          <article class="favorite">
+            <div>
+              <h3>Your kind of cup</h3>
+              <p>Tell us what you love and we'll make your next sip a good one.</p>
+            </div>
+            <span class="favorite-mark" aria-hidden="true">✦</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="visit">
+      <div class="wrap visit">
+        <div class="visit-copy">
+          <p class="eyebrow">Come on in</p>
+          <h2>Your seat and your next cup are waiting.</h2>
+          <p>
+            Stop by for a little treat, a catch-up with friends, or a quiet
+            moment to yourself. We'd love to see you.
+          </p>
+          <a class="button" href="#home">Back to the top</a>
+        </div>
+        <aside class="visit-card">
+          <strong>Make yourself at home.</strong>
+          <p>
+            Have a question about today's selection? Just ask our team when
+            you visit. We can't wait to welcome you to Aryan's Cafe.
+          </p>
+        </aside>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container footer-wrap">
-      <div class="brand">
-        <div class="brand-mark">C</div>
-        <span>Commit</span>
-      </div>
-      <div>Version control • CI/CD • release sync</div>
+    <div class="wrap footer-row">
+      <a class="brand" href="#home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span>Aryan's Cafe</span>
+      </a>
+      <span>Good coffee, warm moments, always.</span>
     </div>
   </footer>
 </body>
