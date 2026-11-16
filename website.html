@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#f6f0e5" />
   <meta name="description" content="Aryan's Cafe is a cozy neighborhood spot for good coffee, fresh bakes, and unhurried moments." />
-  <title>Aryan's Cafe | Coffee, comfort, and good company</title>
+  <title>Aryan's Cafe | A pause worth taking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
   <style>
     :root {
       color-scheme: light;
@@ -30,9 +33,9 @@
 
     body {
       margin: 0;
-      background: var(--cream);
+      background: linear-gradient(180deg, #f8f3e9 0%, var(--cream) 58%, #efe4d2 100%);
       color: var(--ink);
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: "DM Sans", Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -69,6 +72,7 @@
       font-weight: 700;
       letter-spacing: 0.02em;
       white-space: nowrap;
+      font-family: "Playfair Display", Georgia, serif;
     }
 
     .brand-mark {
@@ -148,10 +152,11 @@
     h1 {
       max-width: 650px;
       margin-bottom: 22px;
-      font-size: clamp(3.35rem, 7.5vw, 6.55rem);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(3.25rem, 6.8vw, 5.85rem);
       font-weight: 500;
-      letter-spacing: -0.075em;
-      line-height: 0.96;
+      letter-spacing: -0.06em;
+      line-height: 1.02;
     }
 
     h1 em {
@@ -178,105 +183,68 @@
     }
 
     .hero-art {
-      min-height: 475px;
+      min-height: 535px;
       position: relative;
-      display: grid;
-      place-items: center;
       overflow: hidden;
-      border-radius: 48% 48% 34px 34px;
+      margin: 0;
+      border: 8px solid rgba(255, 250, 241, 0.8);
+      border-radius: 230px 230px 28px 28px;
       background:
-        radial-gradient(ellipse at 51% 58%, rgba(255, 250, 241, 0.65) 0 22%, transparent 22.5%),
-        radial-gradient(ellipse at 50% 57%, #bc8256 0 38%, transparent 38.5%),
-        linear-gradient(145deg, #d5b08a, #a46b48 62%, #79503b);
-      box-shadow: var(--shadow);
+        radial-gradient(circle at 70% 20%, rgba(238, 199, 144, 0.65), transparent 30%),
+        linear-gradient(145deg, #d5b08a, #70452f 72%);
+      box-shadow: 0 28px 78px rgba(74, 45, 33, 0.2);
+      isolation: isolate;
     }
 
-    .hero-art::before,
     .hero-art::after {
       position: absolute;
-      border: 1px solid rgba(255, 250, 241, 0.38);
-      border-radius: 50%;
-      content: "";
-    }
-
-    .hero-art::before { inset: 20px; }
-    .hero-art::after { inset: 34px; }
-
-    .cup {
-      width: 218px;
-      height: 155px;
-      position: relative;
+      inset: 0;
       z-index: 1;
-      margin-top: 70px;
-      border: 8px solid #fffaf1;
-      border-radius: 12px 12px 72px 72px;
-      background: linear-gradient(180deg, #805038 0 17%, #f3e7d4 17% 100%);
-      box-shadow: 0 25px 35px rgba(63, 35, 22, 0.22);
-      transform: rotate(-7deg);
-    }
-
-    .cup::after {
-      width: 58px;
-      height: 65px;
-      position: absolute;
-      top: 25px;
-      right: -58px;
-      border: 10px solid #fffaf1;
-      border-left: 0;
-      border-radius: 0 38px 38px 0;
+      background: linear-gradient(180deg, rgba(42, 27, 20, 0.02) 35%, rgba(42, 27, 20, 0.58) 100%);
       content: "";
     }
 
-    .cup::before {
-      width: 94px;
-      height: 14px;
+    .hero-photo {
+      width: 100%;
+      height: 100%;
       position: absolute;
-      top: -18px;
-      left: 54px;
-      border-radius: 50%;
-      background: #593723;
-      content: "";
+      inset: 0;
+      z-index: 0;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 700ms ease;
     }
 
-    .steam {
-      width: 18px;
-      height: 62px;
-      position: absolute;
-      top: -95px;
-      left: 91px;
-      border-left: 2px solid rgba(255, 250, 241, 0.8);
-      border-radius: 50%;
-      transform: rotate(12deg);
-    }
-
-    .steam::before,
-    .steam::after {
-      width: 18px;
-      height: 54px;
-      position: absolute;
-      top: 8px;
-      left: 34px;
-      border-left: 2px solid rgba(255, 250, 241, 0.55);
-      border-radius: 50%;
-      content: "";
-    }
-
-    .steam::after { left: 70px; top: -2px; }
+    .hero-art:hover .hero-photo { transform: scale(1.035); }
 
     .art-label {
       position: absolute;
-      right: 24px;
-      bottom: 24px;
+      left: 28px;
+      right: 28px;
+      bottom: 28px;
       z-index: 2;
-      padding: 11px 15px;
-      border: 1px solid rgba(255, 250, 241, 0.55);
-      border-radius: 999px;
-      background: rgba(74, 45, 33, 0.38);
+      padding: 18px 20px;
+      border: 1px solid rgba(255, 250, 241, 0.35);
+      border-radius: 18px;
+      background: rgba(48, 31, 23, 0.32);
       color: white;
-      font-family: Arial, sans-serif;
-      font-size: 0.76rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      backdrop-filter: blur(8px);
+    }
+
+    .art-label strong {
+      display: block;
+      margin-bottom: 4px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      letter-spacing: 0;
+    }
+
+    .art-label span {
+      color: rgba(255, 250, 241, 0.8);
+      font-size: 0.73rem;
     }
 
     .section { padding: 84px 0; }
@@ -291,6 +259,7 @@
     .story-copy h2,
     .visit-copy h2 {
       margin-bottom: 16px;
+      font-family: "Playfair Display", Georgia, serif;
       font-size: clamp(2.4rem, 5vw, 4.25rem);
       font-weight: 500;
       letter-spacing: -0.065em;
@@ -335,7 +304,7 @@
       font-size: 1.25rem;
     }
 
-    .menu-card h3 { margin-bottom: 9px; font-size: 1.5rem; font-weight: 500; }
+    .menu-card h3 { margin-bottom: 9px; font-family: "Playfair Display", Georgia, serif; font-size: 1.5rem; font-weight: 500; }
     .menu-card p { margin: 0; color: var(--muted); font-family: Arial, sans-serif; line-height: 1.7; }
 
     .favorites {
@@ -355,7 +324,7 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .favorite h3 { margin-bottom: 6px; font-size: 1.25rem; font-weight: 500; }
+    .favorite h3 { margin-bottom: 6px; font-family: "Playfair Display", Georgia, serif; font-size: 1.25rem; font-weight: 500; }
     .favorite p { margin: 0; color: var(--muted); font-family: Arial, sans-serif; font-size: 0.9rem; line-height: 1.6; }
     .favorite-mark { color: var(--caramel); font-size: 1.2rem; }
 
@@ -413,7 +382,7 @@
 
     @media (max-width: 800px) {
       .hero-grid { grid-template-columns: 1fr; }
-      .hero-art { min-height: 390px; max-width: 540px; width: 100%; margin: 0 auto; }
+      .hero-art { min-height: 440px; max-width: 540px; width: 100%; margin: 0 auto; }
       .menu-grid { grid-template-columns: 1fr; }
       .menu-card { min-height: 0; }
       .menu-icon { margin-bottom: 18px; }
@@ -426,8 +395,8 @@
       .nav-links { order: 3; width: 100%; justify-content: space-between; gap: 10px; font-size: 0.78rem; }
       .nav > .button { min-height: 40px; padding: 0 15px; font-size: 0.8rem; }
       .hero { padding-top: 56px; }
-      .hero-art { min-height: 320px; }
-      .cup { transform: scale(0.82) rotate(-7deg); }
+      .hero-art { min-height: 350px; }
+      .art-label { left: 16px; right: 16px; bottom: 16px; }
       .section { padding: 64px 0; }
       .visit { padding: 28px 22px; }
       .footer-row { align-items: flex-start; flex-direction: column; }
@@ -463,7 +432,7 @@
       <div class="wrap hero-grid">
         <div>
           <p class="eyebrow">Coffee, comfort, and good company</p>
-          <h1>A little cup of <em>happy.</em></h1>
+          <h1>Take a pause.<br /><em>Stay for coffee.</em></h1>
           <p class="intro">
             Welcome to Aryan's Cafe: a cozy corner for thoughtfully made coffee,
             fresh-from-the-oven treats, and moments worth slowing down for.
@@ -474,10 +443,17 @@
           </div>
           <p class="hero-note">Made with care. Best enjoyed at your own pace.</p>
         </div>
-        <div class="hero-art" role="img" aria-label="Illustration of a warm cup of coffee">
-          <div class="cup"><span class="steam" aria-hidden="true"></span></div>
-          <span class="art-label">Your cozy coffee stop</span>
-        </div>
+        <figure class="hero-art">
+          <img
+            class="hero-photo"
+            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"
+            alt="A freshly prepared cup of coffee on a cafe table"
+          />
+          <figcaption class="art-label">
+            <strong>Made for slow mornings</strong>
+            <span>Good coffee, warm moments, always.</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
