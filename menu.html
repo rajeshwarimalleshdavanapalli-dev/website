@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f3eddf" />
+  <meta name="description" content="Explore coffee, fresh bakes, and light bites at Aryan's Cafe." />
+  <title>Menu | Aryan's Cafe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+  <style>
+    :root { color-scheme: light; --cream: #f6f0e5; --paper: #fffaf1; --ink: #33251d; --muted: #76675b; --coffee: #70452f; --dark: #4a2d21; --caramel: #c9824e; --line: rgba(74,45,33,.14); }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: linear-gradient(180deg,#f8f3e9 0%,var(--cream) 58%,#efe4d2 100%); color: var(--ink); font-family: "DM Sans",Arial,sans-serif; }
+    a { color: inherit; text-decoration: none; } a:focus-visible { outline: 3px solid var(--caramel); outline-offset: 4px; }
+    .wrap { width: min(1120px,calc(100% - 40px)); margin: 0 auto; }
+    .topbar { position: sticky; top: 0; z-index: 5; border-bottom: 1px solid var(--line); background: rgba(246,240,229,.94); backdrop-filter: blur(14px); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font: 700 1.05rem "Playfair Display",Georgia,serif; white-space: nowrap; }
+    .brand-mark { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; background: var(--dark); color: var(--paper); font: 1.15rem Georgia,serif; }
+    .nav-links { display: flex; align-items: center; gap: clamp(16px,3vw,34px); color: var(--muted); font: .88rem Arial,sans-serif; }
+    .nav-links a:hover,.nav-links a[aria-current="page"] { color: var(--dark); }
+    main { min-height: calc(100vh - 150px); padding: clamp(60px,9vw,100px) 0; }
+    .eyebrow { margin: 0 0 18px; color: var(--coffee); font: 700 .72rem Arial,sans-serif; letter-spacing: .17em; text-transform: uppercase; }
+    h1,h2,p { margin-top: 0; }
+    h1 { margin-bottom: 16px; font: 500 clamp(2.8rem,7vw,5rem)/1.04 "Playfair Display",Georgia,serif; letter-spacing: -.06em; }
+    .intro { max-width: 660px; margin-bottom: 38px; color: var(--muted); font: 1rem/1.8 Arial,sans-serif; }
+    .menu-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
+    .menu-card { min-height: 230px; padding: 26px; border: 1px solid var(--line); border-radius: 22px; background: var(--paper); }
+    .menu-icon { width: 48px; height: 48px; display: grid; place-items: center; margin-bottom: 26px; border-radius: 50%; background: #ead9c2; color: var(--dark); font: 1.1rem Arial,sans-serif; }
+    h2 { margin-bottom: 10px; font: 500 1.55rem "Playfair Display",Georgia,serif; }
+    .menu-card p { margin: 0; color: var(--muted); font: .95rem/1.7 Arial,sans-serif; }
+    footer { padding: 26px 0; color: var(--muted); font: .82rem Arial,sans-serif; }
+    @media (max-width: 800px) { .menu-grid { grid-template-columns: 1fr; } .menu-card { min-height: 0; } }
+    @media (max-width: 700px) { .nav { min-height: 68px; flex-wrap: wrap; gap: 10px; padding: 10px 0; } .nav-links { order: 3; width: 100%; justify-content: space-between; gap: 8px; font-size: .78rem; } .wrap { width: min(100% - 28px,1120px); } }
+  </style>
+  <link rel="stylesheet" href="site.css" />
+  <script src="auth.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="wrap nav" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Aryan's Cafe home"><img class="brand-logo" src="aryans-cafe-logo.svg" alt="" /><span>Aryan's Cafe</span></a>
+      <div class="nav-links">
+        <a href="story.html">Our story</a>
+        <a href="menu.html" aria-current="page">Menu</a>
+        <a href="favorites.html">Favorites</a>
+        <a href="visit.html">Visit</a>
+      </div>
+      <a class="button" href="index.html#booking">Book a table</a>
+    </nav>
+  </header>
+  <main class="wrap subpage-main">
+    <section class="page-lead">
+      <div>
+        <p class="eyebrow">Coffeehouse classics</p>
+        <h1>A cup for<br />every mood.</h1>
+        <p>From a quick espresso to a slow, milky latte, discover the coffee we love to make. Ask our team what is fresh today.</p>
+      </div>
+      <img class="page-photo" src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="Cafe counter ready to serve coffee and fresh treats" />
+    </section>
+    <div class="section-heading">
+      <p class="eyebrow">Our coffee menu</p>
+      <h2>Small rituals. Beautifully brewed.</h2>
+    </div>
+    <div class="menu-grid coffee-grid">
+      <article class="menu-card coffee-card"><img class="menu-photo" src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&amp;fit=crop&amp;w=800&amp;q=85" alt="A freshly pulled espresso shot" loading="lazy" /><span class="menu-icon">01 / BOLD</span><h2>Espresso</h2><p>Short, rich, and beautifully balanced. A little cup with a long finish.</p></article>
+      <article class="menu-card coffee-card"><img class="menu-photo" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&amp;fit=crop&amp;w=800&amp;q=85" alt="A cup of black coffee served in a ceramic mug" loading="lazy" /><span class="menu-icon">02 / CLASSIC</span><h2>Americano</h2><p>Espresso softened with hot water for a clean, unhurried cup.</p></article>
+      <article class="menu-card coffee-card"><img class="menu-photo" src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&amp;fit=crop&amp;w=800&amp;q=85" alt="A creamy cappuccino with delicate milk foam" loading="lazy" /><span class="menu-icon">03 / COMFORT</span><h2>Cappuccino</h2><p>Espresso, steamed milk, and a cloud of soft, airy foam.</p></article>
+      <article class="menu-card coffee-card"><img class="menu-photo" src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&amp;fit=crop&amp;w=800&amp;q=85" alt="A smooth latte served in a glass" loading="lazy" /><span class="menu-icon">04 / SILKY</span><h2>Cafe Latte</h2><p>Rich espresso meets silky steamed milk for an easy everyday favourite.</p></article>
+      <article class="menu-card coffee-card"><img class="menu-photo" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&amp;fit=crop&amp;w=800&amp;q=85" alt="Coffee drinks with rich espresso and milk" loading="lazy" /><span class="menu-icon">05 / INDULGENT</span><h2>Mocha</h2><p>Espresso and dark chocolate folded into smooth, steamed milk.</p></article>
+      <article class="menu-card coffee-card"><img class="menu-photo" src="https://images.unsplash.com/photo-1497515114629-f71d768fd07c?auto=format&amp;fit=crop&amp;w=800&amp;q=85" alt="Chilled coffee served over ice" loading="lazy" /><span class="menu-icon">06 / CHILLED</span><h2>Cold Brew</h2><p>Slow-steeped coffee, served cold and smooth for warmer afternoons.</p></article>
+    </div>
+    <h2 class="other-menu-title">Something to go with it</h2>
+    <div class="menu-grid">
+      <article class="menu-card"><img class="menu-photo" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="Fresh bread and pastries from the oven" loading="lazy" /><span class="menu-icon" aria-hidden="true">07</span><h2>Fresh bakes</h2><p>Flaky pastries, sweet treats, and something lovely to pair with your coffee.</p></article>
+      <article class="menu-card"><img class="menu-photo" src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="A cosy table set for a cafe meal" loading="lazy" /><span class="menu-icon" aria-hidden="true">08</span><h2>Light bites</h2><p>Easygoing bites for a quick break, a slow lunch, or sharing across the table.</p></article>
+    </div>
+  </main>
+  <footer><div class="wrap">Good coffee, warm moments, always.</div></footer>
+</body>
+</html>

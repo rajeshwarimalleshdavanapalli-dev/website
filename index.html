@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f6f0e5" />
+  <meta name="theme-color" content="#f3eddf" />
   <meta name="description" content="Aryan's Cafe is a cozy neighborhood spot for good coffee, fresh bakes, and unhurried moments." />
   <title>Aryan's Cafe | A pause worth taking</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -409,21 +409,24 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="site.css" />
+  <script src="site.js" defer></script>
+  <script src="auth.js" defer></script>
 </head>
 <body>
   <header class="topbar">
     <nav class="wrap nav" aria-label="Main navigation">
-      <a class="brand" href="#home" aria-label="Aryan's Cafe home">
-        <span class="brand-mark" aria-hidden="true">A</span>
+      <a class="brand" href="index.html" aria-label="Aryan's Cafe home">
+        <img class="brand-logo" src="aryans-cafe-logo.svg" alt="" />
         <span>Aryan's Cafe</span>
       </a>
       <div class="nav-links">
-        <a href="#about">Our story</a>
-        <a href="#menu">Menu</a>
-        <a href="#favorites">Favorites</a>
-        <a href="#visit">Visit</a>
+        <a href="story.html">Our story</a>
+        <a href="menu.html">Menu</a>
+        <a href="favorites.html">Favorites</a>
+        <a href="visit.html">Visit</a>
       </div>
-      <a class="button" href="#menu">Explore the menu</a>
+      <a class="button" href="index.html#booking">Book a table</a>
     </nav>
   </header>
 
@@ -540,6 +543,29 @@
       </div>
     </section>
 
+    <section class="photo-strip">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">A place to linger</p>
+          <h2>Little moments, beautifully made.</h2>
+        </div>
+        <div class="photo-grid">
+          <figure class="photo-card">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Warm, sunlit cafe interior with inviting tables" loading="lazy" />
+            <figcaption>A welcoming corner</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Freshly baked bread and pastries" loading="lazy" />
+            <figcaption>Fresh from the oven</figcaption>
+          </figure>
+          <figure class="photo-card">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="A carefully prepared cup of coffee" loading="lazy" />
+            <figcaption>Your next favourite cup</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="visit">
       <div class="wrap visit">
         <div class="visit-copy">
@@ -560,12 +586,79 @@
         </aside>
       </div>
     </section>
+
+    <section class="guest-experience" id="booking">
+      <div class="wrap experience-grid">
+        <div class="experience-copy">
+          <p class="eyebrow">A little note from you</p>
+          <h2>Good evenings begin around the table.</h2>
+          <p>Planning a coffee date or a slow afternoon? Send us a table request and we'll get back to you to confirm.</p>
+          <div class="rating-box">
+            <h3>Rate your visit</h3>
+            <p>Your feedback helps us make every visit a little warmer.</p>
+            <fieldset class="rating-control" data-rating-form>
+              <legend>Choose a star rating</legend>
+              <input id="rating-5" type="radio" name="rating" value="5" />
+              <label for="rating-5" aria-label="5 stars">★</label>
+              <input id="rating-4" type="radio" name="rating" value="4" />
+              <label for="rating-4" aria-label="4 stars">★</label>
+              <input id="rating-3" type="radio" name="rating" value="3" />
+              <label for="rating-3" aria-label="3 stars">★</label>
+              <input id="rating-2" type="radio" name="rating" value="2" />
+              <label for="rating-2" aria-label="2 stars">★</label>
+              <input id="rating-1" type="radio" name="rating" value="1" />
+              <label for="rating-1" aria-label="1 star">★</label>
+            </fieldset>
+            <p class="rating-status" data-rating-status aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="booking-box">
+          <h3>Book your table</h3>
+          <p>Share a few details and your email app will open with a ready-to-send request.</p>
+          <form class="booking-form" data-booking-form>
+            <label class="form-field form-field-wide">Your name
+              <input name="name" autocomplete="name" required />
+            </label>
+            <label class="form-field">Email address
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+            <label class="form-field">Phone (optional)
+              <input type="tel" name="phone" autocomplete="tel" />
+            </label>
+            <label class="form-field">Date
+              <input type="date" name="date" required />
+            </label>
+            <label class="form-field">Time
+              <input type="time" name="time" required />
+            </label>
+            <label class="form-field">Guests
+              <select name="guests" required>
+                <option value="1">1 guest</option>
+                <option value="2" selected>2 guests</option>
+                <option value="3">3 guests</option>
+                <option value="4">4 guests</option>
+                <option value="5">5 guests</option>
+                <option value="6">6 guests</option>
+                <option value="7">7 guests</option>
+                <option value="8">8 guests</option>
+              </select>
+            </label>
+            <label class="form-field">Notes (optional)
+              <input name="notes" />
+            </label>
+            <button class="button form-field-wide" type="submit">Request a table</button>
+          </form>
+          <p class="booking-note">Your table isn't confirmed until our team replies to your request.</p>
+          <p class="booking-status" data-booking-status aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <div class="wrap footer-row">
-      <a class="brand" href="#home">
-        <span class="brand-mark" aria-hidden="true">A</span>
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="aryans-cafe-logo.svg" alt="" />
         <span>Aryan's Cafe</span>
       </a>
       <span>Good coffee, warm moments, always.</span>
